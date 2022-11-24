@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+
+  product:
+    image: eccom/product
+    build: product
+
+  account: 
+    image: eccom/account
+    build: account

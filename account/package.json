@@ -1,10 +1,10 @@
 {
  "name": "account",
   "version": "1.0.0",
-  "main": "createUserAccount.js",
+  "main": "src/use-case/createUserAccount.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test":  "node test/createUserAccount.test.js",
     "start": "node src/use-case/createUserAccount.js"
   },
   "author": "",
