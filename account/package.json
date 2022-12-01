@@ -1,16 +1,19 @@
 {
  "name": "account",
-  "version": "1.0.0",
-  "main": "src/use-case/createUserAccount.js",
-  "type": "module",
-  "scripts": {
-    "test":  "node test/createUserAccount.test.js",
-    "start": "node src/use-case/createUserAccount.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "directories": {
-    "test": "test"
-  },
-  "description": ""
+ "version": "1.0.0",
+ "main": "src/use-case/createUserAccount.js",
+ "type": "module",
+ "scripts": {
+  "test": "node test/createUserAccount.test.js",
+  "start": "node src/use-case/createUserAccount.js"
+ },
+ "author": "",
+ "license": "ISC",
+ "directories": {
+  "test": "test"
+ },
+ "description": "",
+ "dependencies": {
+  "mongodb": "^4.12.1"
+ }
 }

@@ -1,4 +1,4 @@
-var contas = []
+import { saveAccount } from "../../repositorie/accountRepository.js";
 
 export function creatUserUserCase(name, email, passaword){
 
@@ -14,7 +14,7 @@ export function creatUserUserCase(name, email, passaword){
 
 const  user = {
 
- id: contas.length +1,
+
  name: name,
  email: email,
  passaword: passaword,
@@ -24,9 +24,13 @@ const  user = {
 
 };
 
-contas.push(user)
+saveAccount(user);
 
 return user
 
 }
+
+const account = creatUserUserCase('Nicoli', 'nicoli@gmail', '123456');
+
+    console.log(account);
 
