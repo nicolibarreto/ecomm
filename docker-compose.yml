@@ -4,12 +4,15 @@ services:
   product:
     image: eccom/product
     build: product
+    volumes:
+      - ./product:/app 
 
   account: 
     image: eccom/account
     build: account
     volumes:
       - ./account:/app 
+      
       
   account-database:
     image: mongo

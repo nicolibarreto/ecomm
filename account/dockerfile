@@ -6,6 +6,6 @@ COPY . .
 
 RUN npm install
 
-ENTRYPOINT npm test
+ENTRYPOINT npm start
 
 # rodar esse comando no terminal = docker build -t eccom/account .

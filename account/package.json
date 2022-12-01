@@ -5,7 +5,7 @@
  "type": "module",
  "scripts": {
   "test": "node test/createUserAccount.test.js",
-  "start": "node src/use-case/createUserAccount.js"
+  "start": "nodemon src/use-case/createUserAccount.js"
  },
  "author": "",
  "license": "ISC",
@@ -14,6 +14,7 @@
  },
  "description": "",
  "dependencies": {
-  "mongodb": "^4.12.1"
+  "mongodb": "^4.12.1",
+  "nodemon": "^2.0.20"
  }
 }
