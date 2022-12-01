@@ -5,7 +5,7 @@ services:
     image: eccom/product
     build: product
     volumes:
-      - ./product:/app 
+     - ./product:/app 
 
   account: 
     image: eccom/account
