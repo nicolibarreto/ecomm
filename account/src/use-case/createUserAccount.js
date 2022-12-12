@@ -1,4 +1,4 @@
-import { saveAccount } from "../../repositorie/accountRepository.js";
+import { saveAccount } from "../repositorie/accountRepository.js";
 
 export function creatUserUserCase(name, email, passaword){
 
