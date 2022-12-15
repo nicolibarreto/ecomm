@@ -2,7 +2,7 @@ import { MongoClient } from 'mongodb';
 
 
 
-async function dataBaseConnect() {
+async function getUsersCollection() {
 
     const connectionURL = 'mongodb://admin:pass@account-database:27017'
 
