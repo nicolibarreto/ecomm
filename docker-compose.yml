@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+
+  product:
+    image: eccom/product
+    build: product
+    volumes:
+     - ./product:/app 
+
+  account: 
+    image: eccom/account
+    build: account
+    volumes:
+      - ./account:/app 
+      
+      
+  account-database:
+    image: mongo
+    container_name: account-database  
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_INITDB_DATABASE=accounts
+    ports:
+      - 27017:27017
