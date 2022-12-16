@@ -1,10 +1,14 @@
 FROM node:18
 
-WORKDIR /account
+WORKDIR /app
+
+COPY package*.json /app/
+
+RUN npm install
 
 COPY . .
 
-RUN npm install
+EXPOSE 3001
 
 ENTRYPOINT npm start
 
