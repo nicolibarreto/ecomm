@@ -10,7 +10,7 @@ router.get('/product', (req, res) => {
             res.status(200).json(data);
         })
         .catch((error) => {
-            res.status(400).json({ status: 'Error getting product!', message: error.message });
+            res.status(500).json({ status: 'Error getting product!', message: error.message });
         })
 });
 router.post('/product', function (req, res) {

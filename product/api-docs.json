@@ -1,0 +1,108 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API Ecomm",
+        "description": "Esta é uma api para manipulação de produtos de um eccomerce.",
+        "contact": {
+            "email": "sac@ecomm.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "API de teste"
+        }
+    ],
+    "paths": {
+        "/Product": {
+            "post": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Cadastro de produtos",
+                "description": "Essa rota será responsável por cadastrar um novo produto",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            },
+                            "examples": {
+                                "product": {
+                                    "value": {
+                                        "produto": {
+                                            "nome": "bolacha",
+                                            "valor": 2,
+                                            "quantidade": 1,
+                                            "descricao": "bolacha, bolacha2, wafe",
+                                            "categoria": "alimentos",
+                                            "caracteristicas": [
+                                                {
+                                                    "nome": "bolacha",
+                                                    "descricao": " alimentos"
+                                                }
+                                            ],
+                                            "imagens": [
+                                                {
+                                                    "url": "https://img.freepik.com/fotos-premium/bolachas-wafer-quadradas-bolachas-crocantes-com-sabor-a-creme-de-chocolate_583400-3688.jpg?w=900",
+                                                    "descricao": "bolacha"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Error creating user!"
+                    },
+                    "201": {
+                        "description": "Created"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "nome": {
+                        "type": "string"
+                    },
+                    "valor": {
+                        "type": "string"
+                    },
+                    "quantidade": {
+                        "type": "string"
+                    },
+                    "descricao": {
+                        "type": "string"
+                    },
+                    "categoria": {
+                        "type": "string"
+                    },
+                    "caracteristicas": {
+                        "type": "array",
+                        "items": {
+                            "nome": "string",
+                            "descricao": "string"
+                        }
+                    },
+                    "imagens": {
+                        "type": "array",
+                        "items": {
+                            "url": "string",
+                            "descricao": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
