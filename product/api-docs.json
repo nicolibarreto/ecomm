@@ -64,6 +64,21 @@
                         "description": "Created"
                     }
                 }
+            },
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Buscas de produtos",
+                "description": "Essa rota será responsável por buscar todos produto",
+                "responses": {
+                    "500": {
+                        "description": "Error product!"
+                    },
+                    "200": {
+                        "description": "Sucess"
+                    }
+                }
             }
         }
     },
