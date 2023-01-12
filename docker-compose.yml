@@ -16,17 +16,25 @@ services:
       - ./account:/app
     ports:
       - 3001:3001
-      
-  
-      
-      
+
   account-database:
     image: mongo
-    container_name: account-database  
+    container_name: account-database
     environment:
-      MYSQL_DATABASE: 'db'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_INITDB_DATABASE=accounts
     ports:
       - 27017:27017
+
+  db:
+    image: mysql
+    container_name: db
+    environment:
+      - MYSQL_ROOT_PASSWORD=f30a1cd65530caf64f1ea31f702e7124a1bbee55
+      - MYSQL_DATABASE=product
+      - MYSQL_USER=mysqluser
+      - MYSQL_PASSWORD=mysqlpass
+
+    ports:
+      - 3307:3306
