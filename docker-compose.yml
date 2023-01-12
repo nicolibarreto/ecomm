@@ -5,27 +5,36 @@ services:
     image: eccom/product
     build: product
     volumes:
-     - ./product:/app 
+      - ./product:/app
     ports:
       - 3000:3000
 
-  account: 
+  account:
     image: eccom/account
     build: account
     volumes:
-      - ./account:/app 
+      - ./account:/app
     ports:
       - 3001:3001
-      
-  
-      
-      
+
   account-database:
     image: mongo
-    container_name: account-database  
+    container_name: account-database
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=pass
       - MONGO_INITDB_DATABASE=accounts
     ports:
       - 27017:27017
+
+  db:
+    image: mysql
+    container_name: db
+    environment:
+      - MYSQL_ROOT_PASSWORD=f30a1cd65530caf64f1ea31f702e7124a1bbee55
+      - MYSQL_DATABASE=product
+      - MYSQL_USER=mysqluser
+      - MYSQL_PASSWORD=mysqlpass
+
+    ports:
+      - 3307:3306
