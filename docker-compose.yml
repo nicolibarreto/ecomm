@@ -5,7 +5,7 @@ services:
     image: eccom/product
     build: product
     volumes:
-      - ./product:/app
+      - ./product:/product
     ports:
       - 3000:3000
 
@@ -27,14 +27,13 @@ services:
     ports:
       - 27017:27017
 
-  db:
+  product-database:
     image: mysql
-    container_name: db
+    container_name: product-database
     environment:
       - MYSQL_ROOT_PASSWORD=f30a1cd65530caf64f1ea31f702e7124a1bbee55
       - MYSQL_DATABASE=product
       - MYSQL_USER=mysqluser
       - MYSQL_PASSWORD=mysqlpass
-
     ports:
       - 3307:3306
