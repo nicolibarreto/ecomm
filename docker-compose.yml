@@ -5,34 +5,35 @@ services:
     image: eccom/product
     build: product
     volumes:
-     - ./product:/app 
+      - ./product:/product
     ports:
       - 3000:3000
 
-  account: 
+  account:
     image: eccom/account
     build: account
     volumes:
-      - ./account:/app 
+      - ./account:/app
     ports:
-      - 3001:3000
-       
-  db:
-    image: mysql:5.7
-    restart: always
+      - 3001:3001
+
+  account-database:
+    image: mongo
+    container_name: account-database
     environment:
-      MYSQL_DATABASE: 'db'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_INITDB_DATABASE=accounts
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
-      - '3307:3306'
-    expose:
-      # Opens port 3306 on the container
-      - '3306'
-      # Where our data will be persisted
-    volumes:
-      - my-db:/var/lib/mysql
-volumes: 
-    my-db:
+      - 27017:27017
+
+  product-database:
+    image: mysql
+    container_name: product-database
+    environment:
+      - MYSQL_ROOT_PASSWORD=f30a1cd65530caf64f1ea31f702e7124a1bbee55
+      - MYSQL_DATABASE=product
+      - MYSQL_USER=mysqluser
+      - MYSQL_PASSWORD=mysqlpass
+    ports:
+      - 3307:3306
