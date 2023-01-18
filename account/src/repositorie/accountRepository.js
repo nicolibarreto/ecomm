@@ -9,7 +9,8 @@ async function getUsersCollection() {
 }
 
 export async function saveAccount(account) {
-    const collection  = await getUsersCollection();
-    await collection.insertOne(account);
+    const usercollection = await getUsersCollection(client);
+    await usercollection.insertOne(account);
+    await client.close();
 
 }
