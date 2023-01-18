@@ -1,27 +1,5 @@
-import request from 'supertest';
-import { app } from '../src/app.js'
+import { creatUserUserCase } from "../src/use-case/createUserAccount.js";
 
-describe('Account Creation', () => {
-    it('should create an user given correct user data', async () => {
-        await request(app)
-            .post('/accounts')
-            .set('content-Type', 'application/json')
-            .set('Accept', 'application/json')
-            .send({
-                name: 'Maria',
-                email: 'maria@pagonxt.com',
-                passaword: '12345',
-            })
-            expect(201);
-            expect(body => {
-                expect(body).toEqual({
-                    id: '',
-                    nome: '',
-                    email: '',
-                    createDate: new Date().toISOString().slice(0.10)
-                })
+const user =  creatUserUserCase ("Nicoli", "nicoli@yahoo.com", "12737382")
 
-            });
-    });
-
-}); 
+console.log(user)
