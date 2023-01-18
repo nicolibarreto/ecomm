@@ -14,7 +14,7 @@ router.get('/product', (req, res) => {
         })
 });
 router.post('/product', function (req, res) {
-    const product = req.body
+    const product = 
     createProductUseCase(product)
         .then((data) => {
             res.status(201).json(data);
