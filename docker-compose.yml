@@ -1,13 +1,13 @@
 version: '3.9'
 services:
 
-  product:
-    image: eccom/product
-    build: product
-    volumes:
-      - ./product:/product
-    ports:
-      - 3000:3000
+  #product:
+    #image: eccom/product
+    #build: product
+    #volumes:
+      #- ./product:/product
+    #ports:
+      #- 3000:3000
 
   account:
     image: eccom/account
@@ -15,7 +15,7 @@ services:
     volumes:
       - ./account:/app
     ports:
-      - 3001:3001
+      - 3001:3000
 
   account-database:
     image: mongo
