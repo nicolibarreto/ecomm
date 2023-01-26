@@ -105,52 +105,21 @@
                     }
                 }
             },
-            "put": {
-                "summary": "Deletar uma conta",
-                "description": "Essa rota sera responsavel por deletar uma conta",
-                "operationId": "deleteAccount",
-                "parameters": [
-                    {
-                        "name": "api_key",
-                        "in": "header",
-                        "description": "delete id",
-                        "required": false,
-                        "schema": {
-                            "type": "string"
+            "components": {
+                "schemas": {
+                    "Account": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            },
+                            "password": {
+                                "type": "string"
+                            }
                         }
-                    },
-                    {
-                        "name": "AccountId",
-                        "in": "path",
-                        "description": "delete id",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int64"
-                        }
-                    }
-                ],
-                "responses": {
-                    "500": {
-                        "description": "Error deleting user!"
-                    }
-                }
-            }
-        }
-    },
-    "components": {
-        "schemas": {
-            "Account": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "email": {
-                        "type": "string"
-                    },
-                    "password": {
-                        "type": "string"
                     }
                 }
             }
