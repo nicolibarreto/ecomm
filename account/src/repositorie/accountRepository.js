@@ -17,7 +17,7 @@ export async function saveAccount(account) {
  export async function findAccount(_id) {
     const usercollection = await getUsersCollection();
     const  dbResult = await usercollection.findOne({
-        "_id": new ObjectId(_id)
+        "_id": ObjectId(_id)
     })
     
     return dbResult;
@@ -26,7 +26,7 @@ export async function saveAccount(account) {
 export async function deleteOne (_id){
     const usercollection = await getUsersCollection();
     const deleteOne = await usercollection.deleteOne({
-        "_id": new ObjectId(_id)
+        "_id": ObjectId(_id)
     })
     
     return deleteOne; 

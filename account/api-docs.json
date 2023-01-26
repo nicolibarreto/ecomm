@@ -49,6 +49,93 @@
                     }
                 }
             }
+        },
+        "/account/{id}": {
+            "get": {
+                "summary": "Buscar uma conta",
+                "description": "Essa rota será responsável por buscar uma conta",
+                "operationId": "getAccounById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID retorno de uma conta",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Error returning user!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Account"
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Account"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deletar uma conta",
+                "description": "Essa rota sera responsavel por deletar uma conta",
+                "operationId": "deleteAccount",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID retorno de uma conta",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Error deleting user!"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Deletar uma conta",
+                "description": "Essa rota sera responsavel por deletar uma conta",
+                "operationId": "deleteAccount",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "header",
+                        "description": "delete id",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "AccountId",
+                        "in": "path",
+                        "description": "delete id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "Error deleting user!"
+                    }
+                }
+            }
         }
     },
     "components": {

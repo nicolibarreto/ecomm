@@ -2,7 +2,7 @@ import { saveAccount } from "../repositorie/accountRepository.js";
 import { encodePassword } from "../helpers.js";
 
 export async function createUserUserCase(name, email, passaword) {
-  const creatDate = new Date().toISOString().substring(0.10);
+  const createDate = new Date().toISOString().substring(0.10);
   const hashPassaword = encodePassword(passaword);
   const user = {
     name: name,
@@ -17,12 +17,4 @@ export async function createUserUserCase(name, email, passaword) {
 }
 
 
-
-// metodo get
-//  export async function getUserUserCase(identificador)`{
-//   manipula~c"ao
-//   return getAccount(identificador)
-// }
-
-// metodo delete
 
