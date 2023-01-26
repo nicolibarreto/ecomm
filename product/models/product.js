@@ -1,7 +1,7 @@
 import {Model, DataTypes}  from 'sequelize';
 import client from "../src/repositories/clientDatabase.js";
-import {ProductImage} from "../models/productimage.js";
-import {ProductFeature} from "../models/productfeature.js";
+import {ProductImage} from "./productimage.js";
+import {ProductFeature} from "./productfeature.js";
 
 export class Product extends Model {
   static associate(models) {
