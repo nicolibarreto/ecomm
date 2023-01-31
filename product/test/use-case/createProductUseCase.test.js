@@ -1,24 +1,46 @@
-import { createProductUseCase } from "../../src/use-case/createProductUseCase.js"
+import request from 'supertest';
+import { app } from '../../src/app.js';
+import { cleanProductTable } from './clearProduct.js';
+import { productExample } from './productExample.js';
 
-const produto =
-{
-    nome: "bolacha",
-    valor: 2,
-    quantidade: 1,
-    descricao: "bolacha, bolacha2, wafe",
-    categoria: "alimentos",
-    caracteristicas: [
-        {
-            nome: "bolacha",
-            descricao: " alimentos",
-        }
-    ],
-    imagens: [
-        {
-            url: "https://img.freepik.com/fotos-premium/bolachas-wafer-quadradas-bolachas-crocantes-com-sabor-a-creme-de-chocolate_583400-3688.jpg?w=900",
-            descricao: "bolacha",
-        }
-    ],
-}
-const bolacha = await createProductUseCase(produto)
-console.log(bolacha)
+
+describe('Product Creation', () => {
+
+    afterEach(async () => {
+        await cleanProductTable();
+    });
+
+    it('should create a product given required product data', async () => {
+        await request(app)
+            .post('/product')
+            .set('Content-Type', 'application/json')
+            .set('Accept', 'application/json')
+            .send(productExample)
+            .expect(201)
+            .expect(({ body }) => {
+                expect(body).toEqual({
+                    ...productExample,
+                    id: expect.any(Number),
+                    user_id: body.user_id,
+                    createdAt: expect.any(String),
+                    updatedAt: expect.any(String),
+                    features: productExample.features.map(feature => ({
+                        ...feature, 
+                        id: expect.any(Number),
+                        product_id: body.id,
+                        createdAt: expect.any(String),
+                        updatedAt: expect.any(String),
+                    })),
+                    images: productExample.images.map(image => ({
+                        ...image, 
+                        id: expect.any(Number),
+                        product_id: body.id,
+                        createdAt: expect.any(String),
+                        updatedAt: expect.any(String),
+                    }))
+                });
+            });
+    });
+
+
+});
