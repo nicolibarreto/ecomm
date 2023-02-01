@@ -18,8 +18,6 @@ router.post('/account', function(request, response) {
 
 router.get('/account/:id', function (request, response) {
     getUserUserCase(request.params.id).then((user) => {
-        console.log(user)
-
         response.json(user) 
     })
     .catch((error) => {
