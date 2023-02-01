@@ -3,14 +3,12 @@ import { saveProduct } from '../repositories/productRepository.js';
 
 export async function createProductUseCase(product) {
 
-  const id = randomUUID();
+  const id_user = randomUUID();
 
-  const createdDate = new Date().toISOString().substring(0, 10);
+  const createProduct = { id_user, ...product }
 
-  const createProduct = { id, createdDate, ...product }
+  const Products = await saveProduct(createProduct)
 
-  await saveProduct(createProduct)
-
-  return createProduct;
+  return Products;
   
 }

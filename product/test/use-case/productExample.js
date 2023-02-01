@@ -1,36 +1,35 @@
+import { randomUUID } from 'crypto';
 
 export const productExample = {
-    name: 'Iphone 11',
-    value: 5990.00,
-    quantity: 11,
-    description: 'Iphone 11 Branco, 256GB, Novo, Lacrado!',
-    category: 'smartphones',
+    id_user: randomUUID(),
+    name: "coca",
+    value: 2,
+    quantity: 1,
+    description: "refrigerante lata",
+    category: "bebidas",
     features: [
         {
-            name: 'cor',
-            description: 'branco',
+            name: "refrigerante",
+            description: " bebidas",
         },
         {
-            name: 'desbloquado',
-            description: 'sim',
-        },
-        {
-            name: 'memória',
-            description: '8 GB',
-        },
-        {
-            name: 'armazenamento',
-            description: '256 GB',
+            name: "lata",
+            description: " 350ml",
         }
     ],
     images: [
         {
-            url: 'url-da-imagem.jpg',
-            description: 'Frente do Iphone',
+            url: "https://pixabay.com/pt/photos/posso-lata-de-cola-cola-bebida-592366/",
+            description: "refrigerante de lata",
         },
         {
-            url: 'url-da-imagem-2.jpg',
-            description: 'Traseira do Iphone',
+            url: "https://pixabay.com/pt/photos/posso-lata-de-cola-cola-bebida-592366/",
+            description: "refrigerante de lata 350ml",
         }
     ],
 }
+
+
+
+
+
