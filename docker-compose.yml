@@ -1,17 +1,21 @@
 version: '3.9'
 services:
 
-  #product:
-    #image: eccom/product
-    #build: product
-    #volumes:
-      #- ./product:/product
-    #ports:
-      #- 3000:3000
+  product:
+    depends_on: 
+      - product-database
+    image: eccom/product
+    build: product
+    entrypoint: npm run start:dev
+    volumes:
+      - ./product:/product
+    ports:
+      - 3000:3000
 
   account:
     image: eccom/account
     build: account
+    entrypoint: npm run start:dev
     volumes:
       - ./account:/app
     ports:
@@ -31,7 +35,7 @@ services:
     image: mysql
     container_name: product-database
     environment:
-      - MYSQL_ROOT_PASSWORD=f30a1cd65530caf64f1ea31f702e7124a1bbee55
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
       - MYSQL_DATABASE=product
       - MYSQL_USER=mysqluser
       - MYSQL_PASSWORD=mysqlpass
