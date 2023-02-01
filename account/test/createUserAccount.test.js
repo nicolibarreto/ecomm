@@ -10,7 +10,7 @@ describe('Account Creation', () => {
             .send({
                 name: 'Maria',
                 email: 'maria@pagonxt.com',
-                passaword: '12345',
+                password: '12345',
             })
             expect(201);
             expect(body => {
@@ -34,7 +34,7 @@ describe('Account Creation', () => {
             .send({
                 name: 'Maria',
                 email: 'maria@pagonxt.com',
-                passaword: '12345',
+                password: '12345',
             })
             expect(201);
             expect(body => {
@@ -57,7 +57,7 @@ it('should create an user given correct user data', async () => {
         .send({
             name: 'Maria',
             email: 'maria@pagonxt.com',
-            passaword: '12345',
+            password: '12345',
         })
         expect(201);
         expect(body => {

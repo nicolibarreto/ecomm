@@ -31,3 +31,12 @@ export async function deleteOne (_id){
     
     return deleteOne; 
 }
+
+export async function findAccountByEmail(email) {
+    const usercollection = await getUsersCollection();
+    const  dbResult = await usercollection.findOne({
+       email
+    })
+    
+    return dbResult;
+ }
